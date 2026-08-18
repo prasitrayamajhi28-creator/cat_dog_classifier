@@ -33,7 +33,7 @@ model = CatDogCNN(
 #load best model
 model.load_state_dict(
     torch.load(
-        "best_cat_dog_model.pth",
+        "models/best_cat_dog_model.pth",
         map_location=device,
         weights_only=True
     )

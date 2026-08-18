@@ -4,7 +4,7 @@ from sklearn.metrics import (
     confusion_matrix,
     classification_report
 )
-from load_datasets import test_loader
+from dataset import test_loader
 from model import CatDogCNN
 
 #device
@@ -29,7 +29,7 @@ model = CatDogCNN(
 #Load best model
 model.load_state_dict(
     torch.load(
-        "best_cat_dog_model.pth",
+        "models/best_cat_dog_model.pth",
         map_location=device,
         weights_only=True
     )

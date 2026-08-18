@@ -1,10 +1,10 @@
 import torch
 import torch.nn as nn
-from load_datasets import(
+from dataset import(
     train_loader,
     val_loader
 )
-from resnetmodel import CatDogCNN
+from model import CatDogCNN
 
 #device
 if torch.backends.mps.is_available():
