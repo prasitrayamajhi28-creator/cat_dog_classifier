@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Cat dog classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
+</head>
+<body>
+    <div class="container">
+        <h1>Cat Dog recognization</h1>
+        <p>
+            Upload an image and let ResNet18
+            recognize the animal.
+        </p>
+        <form
+            action="/predict"
+            method="POST"
+            enctype="multipart/form-data">
+            <input
+                type="file"
+                name="image"
+                accept="image/*"
+                required >
+            <button type="submit">
+                Predict Gesture
+            </button>
+        </form>
+        {% if prediction %}
+        <div class="result">
+            <h2>Prediction</h2>
+            <p>
+                Gesture:
+                <strong>
+                    {{ prediction }}
+                </strong>
+           </p>
+            <p>
+                Confidence:
+                <strong>
+                    {{ confidence }}
+                </strong>
+            </p>
+        </div>
+        {% endif %}
+    </div>
+    <script  src="{{ url_for('static', filename='js/script.js') }}" ></script>
+</body>
+</html>
